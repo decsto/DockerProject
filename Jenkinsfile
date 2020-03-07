@@ -13,7 +13,7 @@ pipeline {
          * docker build on the command line */
         steps {
             script{
-        docker.build("decsto/dockerproject")
+        docker.build registry + ":$BUILD_NUMBER"
             }
         }
     }
