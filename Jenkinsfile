@@ -13,7 +13,7 @@ pipeline {
          * docker build on the command line */
         steps {
             script{
-        docker.build("decsto/DockerProject")
+        docker.build("decsto/dockerproject")
             }
         }
     }
