@@ -1,7 +1,8 @@
 # Version 3.0
 
 FROM debian:stretch
-#install npm ,node.js, noble, mqtt  
+#install npm ,node.js, noble, mqtt 
+USER root
 WORKDIR /iot
 COPY test.html /var/www/html/
 RUN apt-get -y update
