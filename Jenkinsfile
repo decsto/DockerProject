@@ -1,7 +1,7 @@
 pipeline {
   environment {
-    registry = "decsto/dockerbuild"
-    registryCredential = 'docker-hub-credentials'
+    registry = "decsto/dockerproject"
+    registryCredential = 'GitHub Creds'
     dockerImage = ''
   }
   agent any
