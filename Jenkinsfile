@@ -14,16 +14,16 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = sudo docker.build("decsto/dockerproject")
+          dockerImage = docker.build("decsto/dockerproject")
         }
       }
     }
     stage('Deploy Image') {
       steps{
-        script {
+        
           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
-          }
+          
         }
       }
     }
