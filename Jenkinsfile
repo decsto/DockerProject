@@ -1,4 +1,4 @@
-ipeline {
+pipeline {
     def app
 
     stage('Clone repository') {
@@ -33,3 +33,4 @@ ipeline {
             app.push("latest")
         }
     }
+}
