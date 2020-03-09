@@ -18,6 +18,7 @@ pipeline {
         }
       }
     }
+    /* pushing image to Docker Hub */
     stage('Deploy Image') {
       steps{
         script {
