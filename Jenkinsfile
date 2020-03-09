@@ -1,9 +1,5 @@
 pipeline {
-  environment {
-    registry = "decsto/dockerbuild"
-    registryCredential = 'docker-hub-credentials'
-    dockerImage = ''
-  }
+  def app
   agent any
   stages {
     stage('Cloning Git') {
@@ -14,22 +10,17 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build("decsto/dockerproject")
+         app = docker.build("decsto/dockerproject")
       }
     }
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+          docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
           }
         }
       }
     }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
-  }
-}
+    
