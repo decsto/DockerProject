@@ -11,6 +11,7 @@ pipeline {
         git 'https://github.com/decsto/dockerproject.git'
       }
     }
+    /* building image from github */
     stage('Building image') {
       steps{
         script {
