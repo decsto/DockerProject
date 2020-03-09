@@ -4,7 +4,6 @@ FROM debian:stretch
 #install npm ,node.js, noble, mqtt 
 USER root
 WORKDIR /iot
-COPY test.html /var/www/html/
 RUN apt-get -y update
 RUN apt-get upgrade -y
 RUN apt-get install build-essential -y
