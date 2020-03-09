@@ -1,10 +1,10 @@
 pipeline {
   def app
-  agent any
+ 
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/decsto/dockerproject.git'
+       checkout scm
       }
     }
     stage('Building image') {
@@ -12,6 +12,7 @@ pipeline {
         script {
          app = docker.build("decsto/dockerproject")
       }
+    }
     }
     stage('Deploy Image') {
       steps{
