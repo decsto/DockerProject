@@ -1,6 +1,6 @@
 FROM debian:stretch  
 WORKDIR /iot
-RUN apt-get -y update
+RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install build-essential -y
 RUN apt-get install curl -y
